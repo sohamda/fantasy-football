@@ -1,2 +1,4 @@
 # Ignore Draw.io backup files
 **/*.drawio.bkp
+**/node_modules/
+**/.vscode/

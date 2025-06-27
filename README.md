@@ -38,7 +38,7 @@ The name of this system from now on in the document will be **Poly**.
 
 sequenceDiagram
     participant MCP_Client as MCP Client
-    box Azure Azure
+    box Azure AWS/Azure/GCP
         participant APIM
         participant Init-Agent as Init Agent
         participant Sub_Agents as Sub Agents
