@@ -18,7 +18,19 @@ The name of this system from now on in the document will be **Poly**.
 
 ### User registration flow
 
-![how a new user is registered](./architecture/registration_flow.png)
+```mermaid
+
+ sequenceDiagram
+    User->>Onboard Portal: 1. registration request
+    Onboard Portal->>User: 2. registration options
+    User->>Onboard Portal: 3. Choose options
+    Onboard Portal->>Onboard Service: 4. user details + registration choice
+    Onboard Service->>IDP: 5. create user + assign role
+    IDP-->>Onboard Service: return
+    Onboard Service-->>Onboard Portal: return
+    Onboard Portal-->>User: return 
+
+```
 
 
 ### MCP client interaction flow
