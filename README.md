@@ -21,39 +21,40 @@ The name of this system from now on in the document will be **Poly**.
 ```mermaid
 
  sequenceDiagram
-    User->>Onboard Portal: 1. registration request
-    Onboard Portal->>User: 2. registration options
-    User->>Onboard Portal: 3. Choose options
-    Onboard Portal->>Onboard Service: 4. user details + registration choice
-    Onboard Service->>IDP: 5. create user + assign role
+    User->>Onboard Portal: registration request
+    Onboard Portal->>User: registration options
+    User->>Onboard Portal: Choose options
+    Onboard Portal->>Onboard Service: user details + registration choice
+    Onboard Service->>IDP: create user + assign role
     IDP-->>Onboard Service: return
     Onboard Service-->>Onboard Portal: return
     Onboard Portal-->>User: return 
 
 ```
 
-
 ### MCP client interaction flow
 
 ```mermaid
 
- sequenceDiagram
+sequenceDiagram
     participant MCP_Client as MCP Client
-    participant APIM
-    participant Init-Agent as Init Agent
-    participant Sub_Agents as Sub Agents
-    participant IDP
+    box Azure Azure
+        participant APIM
+        participant Init-Agent as Init Agent
+        participant Sub_Agents as Sub Agents
+        participant IDP
+    end
 
     MCP_Client->>APIM: request
     APIM->>IDP: login + authenticate
-    IDP-->>APIM: oauth token
+    IDP-->>MCP_Client: oauth token
     MCP_Client->>APIM: send query
     APIM->>Init-Agent: invoke agent
     Init-Agent->>Sub_Agents: delegate query
+    Sub_Agents-->>Init-Agent: return results
     Init-Agent-->>MCP_Client: return results 
 
 ```
-
 
 ### Internal Agent interaction flow
 
