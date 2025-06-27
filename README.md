@@ -32,6 +32,10 @@ The name of this system from now on in the document will be **Poly**.
 
 ```
 
+Subscription models would look like >>
+![subscription models in Poly](./code/frontend/public/subscriptions.png)
+
+
 ### MCP client interaction flow
 
 ```mermaid
@@ -55,6 +59,8 @@ sequenceDiagram
     Init-Agent-->>MCP_Client: return results 
 
 ```
+
+
 
 ### Internal Agent interaction flow
 
