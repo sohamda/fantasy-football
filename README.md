@@ -35,7 +35,24 @@ The name of this system from now on in the document will be **Poly**.
 
 ### MCP client interaction flow
 
-![how MCP client(s) connect to Poly](./architecture/mcp-flow.png)
+```mermaid
+
+ sequenceDiagram
+    participant MCP_Client as MCP Client
+    participant APIM
+    participant Init-Agent as Init Agent
+    participant Sub_Agents as Sub Agents
+    participant IDP
+
+    MCP_Client->>APIM: request
+    APIM->>IDP: login + authenticate
+    IDP-->>APIM: oauth token
+    MCP_Client->>APIM: send query
+    APIM->>Init-Agent: invoke agent
+    Init-Agent->>Sub_Agents: delegate query
+    Init-Agent-->>MCP_Client: return results 
+
+```
 
 
 ### Internal Agent interaction flow
