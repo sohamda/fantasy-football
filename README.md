@@ -1,12 +1,13 @@
-# Eeredivisie Fantasy Football - Agentic Way
+# Eredivisie Fantasy Football - Agentic Way
 
 ### Name
 
 The name of this system from now on in the document will be **Poly**.
 
 ### Goal
-1. Every week produce a team of 15 players.
-2. Team should be complete(4-3-3) with a goalkeeper.
+1. For each round (2 rounds total) select 18 players based on a total budget given by Scorito.  
+2. Every week select a team of 13 players from the above 18 players.
+3. Team should be complete with goalkeeper, defenders, midfield and forwards.
 
 ### Requirements
 1. Onboarding portal registers new users and provides user management.
