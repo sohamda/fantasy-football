@@ -2,3 +2,5 @@
 **/*.drawio.bkp
 **/node_modules/
 **/.vscode/
+.env
+**/code/backend/scoritoAgent/players-round1/

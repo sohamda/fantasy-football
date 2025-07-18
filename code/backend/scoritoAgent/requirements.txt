@@ -1,0 +1,7 @@
+python-dotenv
+azure-cosmos
+azure-loganalytics
+azure-identity
+openai
+azure-core
+pillow

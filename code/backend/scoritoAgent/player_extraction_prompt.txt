@@ -1,0 +1,32 @@
+# Player Extraction Prompt
+this is a screenshot of players of Eredivise.
+Extract:
+1. name
+2. teams. there are always 2 teams mentioned with hypen or dash in between. The team names are 3 letter abbreviation.
+3. their points
+4. how much they worth
+5. information about their jersey, detail it so that it helps a blind person to identify the jersey color and patterns in it.
+6. information of their position, G for Goalkeeper, M for Midfielder, F for forward, and D for defense.
+
+Only use information from the above picture. If one of the attribute not found, say not found for that attribute. There can be information of maximum 5 players.
+Return the extracted information as a JSON object with appropriate keys.
+
+Example response:
+[
+    {
+        "name": "T. Wellenreuther",
+        "teams": "FEY - NAC",
+        "points": "1,956",
+        "worth": "£3.00 M",
+        "jersey": "Mostly red jersey with a vertical white stripe down the left side and white sleeves.",
+        "position": "G"
+    },
+    {
+        "name": "L. Unnerstall",
+        "teams": "PEC - TWE",
+        "points": "1,790",
+        "worth": "£2.50 M",
+        "jersey": "Solid red jersey with no patterns or extra colors visible.",
+        "position": "G"
+    }
+]
