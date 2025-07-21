@@ -2,7 +2,7 @@
 this is a screenshot of players of Eredivise.
 Extract:
 1. name
-2. teams. there are always 2 teams mentioned with hypen or dash in between. The team names are 3 letter abbreviation.
+2. team. there are always 2 teams mentioned with hypen or dash in between. The team names are 3 letter abbreviation. Use the list mentioned below the prompt to get the actual team name.
 3. their points
 4. how much they worth
 5. information about their jersey, detail it so that it helps a blind person to identify the jersey color and patterns in it.
@@ -11,11 +11,35 @@ Extract:
 Only use information from the above picture. If one of the attribute not found, say not found for that attribute. There can be information of maximum 5 players.
 Return the extracted information as a JSON object with appropriate keys.
 
-Example response:
+After extracting the JSON, validate and update the "team" for each player using Bing search, send bing api the name, team and jersey and ask for the correct team name in 3 letter abbreviation. 
+Only search for Eredivise league team names. Final response should be a valid JSON as per the Example provided at the end of this prompt.
+
+team name and their 3 letter abbreviation:
+FOR = Fortuna Sittard
+GAE = Go Ahead Eagles
+NEC = NEC Nijmegen
+EXC = Excelsior
+FEY = Feyenoord
+NAC = NAC Breda
+HEE = Heerenveen
+VOL = Volendam
+PSV = PSV Eindhoven
+SPA = Sparta Rotterdam
+PEC = PEC Zwolle
+TWE = FC Twente
+AZ = AZ Alkamar
+GRO = FC Groningen
+AJA = FC Ajax Amsterdam
+TEL = Telstar
+UTR = FC Utrecht
+HER = Heracles Almelo
+
+
+Example response JSON:
 [
     {
         "name": "T. Wellenreuther",
-        "teams": "FEY - NAC",
+        "team": "Feyenoord",
         "points": "1,956",
         "worth": "£3.00 M",
         "jersey": "Mostly red jersey with a vertical white stripe down the left side and white sleeves.",
@@ -23,7 +47,7 @@ Example response:
     },
     {
         "name": "L. Unnerstall",
-        "teams": "PEC - TWE",
+        "team": "PEC Zwolle",
         "points": "1,790",
         "worth": "£2.50 M",
         "jersey": "Solid red jersey with no patterns or extra colors visible.",

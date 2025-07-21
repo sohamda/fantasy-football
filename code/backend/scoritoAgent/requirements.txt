@@ -5,3 +5,4 @@ azure-identity
 openai
 azure-core
 pillow
+azure-ai-agents
