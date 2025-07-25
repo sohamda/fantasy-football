@@ -4,7 +4,7 @@ Input data: {extracted_players}
 
 send bing api the name, team and jersey and ask for the correct team name in 3 letter abbreviation. 
 Only search for Eredivise league team names. 
-Final response should be a valid JSON as per the schema provided at the end of this prompt. 
+Final response should be a valid JSON as per the example provided at the end of this prompt. 
 No extra texts, only the JSON as final output.
 
 Use the below info to replace the team name from their 3 letter abbreviation:
@@ -27,21 +27,24 @@ TEL = Telstar
 UTR = FC Utrecht
 HER = Heracles Almelo
 
-Strictly adhere to the following JSON schema for the final response:
-
-{
-  "$schema": "http://json-schema.org/draft-07/schema#",
-  "type": "array",
-  "items": {
-    "type": "object",
-    "properties": {
-      "name": { "type": "string" },
-      "team": { "type": "string" },
-      "points": { "type": "string" },
-      "worth": { "type": "string" },
-      "jersey": { "type": "string" },
-      "position": { "type": "string", "enum": ["G", "M", "F", "D"] }
-    },
-    "required": ["name", "team", "points", "worth", "jersey", "position"]
-  }
-}
+IMPORTANT: Return ONLY valid JSON in the exact format below, with no additional text or markdown:
+{{
+    "players": [
+        {{
+            "name": "T. Wellenreuther",
+            "team": "Feyenoord",
+            "points": "1,956",
+            "worth": "£3.00 M",
+            "jersey": "Mostly red jersey with a vertical white stripe down the left side and white sleeves.",
+            "position": "G"
+        }},
+        {{
+            "name": "L. Unnerstall",
+            "team": "PEC Zwolle",
+            "points": "1,790",
+            "worth": "£2.50 M",
+            "jersey": "Solid red jersey with no patterns or extra colors visible.",
+            "position": "G"
+        }}
+    ]
+}}

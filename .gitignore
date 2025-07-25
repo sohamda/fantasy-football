@@ -4,3 +4,7 @@
 **/.vscode/
 .env
 **/code/backend/scoritoAgent/players-round1/
+# Byte-compiled / optimized / DLL files
+**/__pycache__/
+**/*.py[cod]
+**/*$py.class
