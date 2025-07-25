@@ -1,6 +1,8 @@
 # Player Extraction Prompt
 this is a screenshot of players of Eredivise.
-Extract:
+
+Extract player information by parsing the image and retrieve the below information as JSON. No extra texts, just JSON.
+info to extract:
 1. name
 2. team. there are always 2 teams mentioned with hypen or dash in between. The team names are 3 letter abbreviation. Use the list mentioned below the prompt to get the actual team name.
 3. their points
@@ -11,31 +13,7 @@ Extract:
 Only use information from the above picture. If one of the attribute not found, say not found for that attribute. There can be information of maximum 5 players.
 Return the extracted information as a JSON object with appropriate keys.
 
-After extracting the JSON, validate and update the "team" for each player using Bing search, send bing api the name, team and jersey and ask for the correct team name in 3 letter abbreviation. 
-Only search for Eredivise league team names. Final response should be a valid JSON as per the Example provided at the end of this prompt.
-
-team name and their 3 letter abbreviation:
-FOR = Fortuna Sittard
-GAE = Go Ahead Eagles
-NEC = NEC Nijmegen
-EXC = Excelsior
-FEY = Feyenoord
-NAC = NAC Breda
-HEE = Heerenveen
-VOL = Volendam
-PSV = PSV Eindhoven
-SPA = Sparta Rotterdam
-PEC = PEC Zwolle
-TWE = FC Twente
-AZ = AZ Alkamar
-GRO = FC Groningen
-AJA = FC Ajax Amsterdam
-TEL = Telstar
-UTR = FC Utrecht
-HER = Heracles Almelo
-
-
-Example response JSON:
+Final response JSON should be like:
 [
     {
         "name": "T. Wellenreuther",

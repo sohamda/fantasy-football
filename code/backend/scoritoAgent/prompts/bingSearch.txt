@@ -1,0 +1,47 @@
+For each player, validate and update the "team" for each player using Bing search.
+
+Input data: {extracted_players}
+
+send bing api the name, team and jersey and ask for the correct team name in 3 letter abbreviation. 
+Only search for Eredivise league team names. 
+Final response should be a valid JSON as per the schema provided at the end of this prompt. 
+No extra texts, only the JSON as final output.
+
+Use the below info to replace the team name from their 3 letter abbreviation:
+FOR = Fortuna Sittard
+GAE = Go Ahead Eagles
+NEC = NEC Nijmegen
+EXC = Excelsior
+FEY = Feyenoord
+NAC = NAC Breda
+HEE = Heerenveen
+VOL = Volendam
+PSV = PSV Eindhoven
+SPA = Sparta Rotterdam
+PEC = PEC Zwolle
+TWE = FC Twente
+AZ = AZ Alkamar
+GRO = FC Groningen
+AJA = FC Ajax Amsterdam
+TEL = Telstar
+UTR = FC Utrecht
+HER = Heracles Almelo
+
+Strictly adhere to the following JSON schema for the final response:
+
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "type": "array",
+  "items": {
+    "type": "object",
+    "properties": {
+      "name": { "type": "string" },
+      "team": { "type": "string" },
+      "points": { "type": "string" },
+      "worth": { "type": "string" },
+      "jersey": { "type": "string" },
+      "position": { "type": "string", "enum": ["G", "M", "F", "D"] }
+    },
+    "required": ["name", "team", "points", "worth", "jersey", "position"]
+  }
+}
