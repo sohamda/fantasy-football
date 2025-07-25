@@ -70,23 +70,6 @@ def encode_image_to_base64(image_path):
     with open(image_path, 'rb') as img_file:
         return base64.b64encode(img_file.read()).decode('utf-8')
     
-# Function to perform Bing Search
-def bing_search(query):
-    try:
-        headers = {"Ocp-Apim-Subscription-Key": "9383692ece2240689f673a4b30046764",
-                "resource-id": "/subscriptions/3b250d66-c6d7-48ff-b78e-351fa7f7a8eb/resourceGroups/fantasy-football/providers/Microsoft.Bing/accounts/ff-bing"}
-        
-        params = {"q": query, "count": 3}  # Limit results for brevity
-        response = requests.get("https://api.bing.microsoft.com/", headers=headers, params=params)
-        response.raise_for_status()
-        results = response.json()
-        log_to_loganalytics(f"Bing results: {results}")
-        return [item["snippet"] for item in results.get("webPages", {}).get("value", [])]
-    except Exception as e:
-        log_to_loganalytics(f"Bing failed: {e}")
-        return None
-
-
 def validate_image_extraction(extracted_players, image_file):
     
     prompt_template = get_validate_image_extraction_prompt()
@@ -219,4 +202,3 @@ def process_all_images():
 
 if __name__ == "__main__":
     process_all_images()
-    #bing_search("what is an ounce")
