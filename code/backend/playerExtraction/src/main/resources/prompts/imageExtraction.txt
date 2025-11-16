@@ -1,0 +1,35 @@
+# Player Extraction Prompt
+
+this is an image of multiple football/soccer player 
+shirts with their name, teams they play, points they have and their valuation in british pounds.
+
+Extract player by parsing the image and retrieve the below information as JSON. No extra texts, just JSON.
+info to extract:
+1. name
+2. teams. there are always 2 teams mentioned with hypen or dash in between. The team names are 3 letter abbreviation. Use the list mentioned below the prompt to get the actual team name.
+3. their points
+4. how much they worth
+5. information about their jersey, detail it so that it helps a blind person to identify the jersey color and patterns in it.
+6. information of their position, G for Goalkeeper, M for Midfielder, F for forward, and D for defense.
+
+Only use information from the above picture. If one of the attribute not found, say not found for that attribute. There can be information of maximum 5 players.
+Return the extracted information as a JSON object with appropriate keys.
+
+Strictly adhere to the following JSON schema:
+
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "type": "array",
+  "items": {
+    "type": "object",
+    "properties": {
+      "name": { "type": "string" },
+      "teams": { "type": "string" },
+      "points": { "type": "string" },
+      "worth": { "type": "string" },
+      "jersey": { "type": "string" },
+      "position": { "type": "string", "enum": ["G", "M", "F", "D"] }
+    },
+    "required": ["name", "teams", "points", "worth", "jersey", "position"]
+  }
+}

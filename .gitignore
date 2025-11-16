@@ -8,3 +8,5 @@
 **/__pycache__/
 **/*.py[cod]
 **/*$py.class
+code/backend/playerExtraction/src/main/resources/application.properties
+.github/copilot-instructions.md

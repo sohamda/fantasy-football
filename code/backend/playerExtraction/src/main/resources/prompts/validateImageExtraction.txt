@@ -1,0 +1,15 @@
+
+Given the image attached and JSON provided, validate whether the provided JSON matches the image attached.
+Give a rating between 0 and 10, 0 being nothing matches and 10 being everything is perfectly extracted.
+
+Output should be only a number between 0 and 10. No extra information needed.
+
+The info extracted from the image are:
+1. name
+2. team. there are always 2 teams mentioned with hypen or dash in between. The team names are 3 letter abbreviation. Use the list mentioned below the prompt to get the actual team name.
+3. their points
+4. how much they worth
+5. information about their jersey, detail it so that it helps a blind person to identify the jersey color and patterns in it.
+6. information of their position, G for Goalkeeper, M for Midfielder, F for forward, and D for defense.
+
+JSON: {json_extracted}
